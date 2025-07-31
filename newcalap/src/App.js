@@ -1,24 +1,11 @@
-import React, { useState } from 'react';
-import { format, addMonths, subMonths } from 'date-fns';
-import Header from './components/Calendar/Header';
-import CalendarGrid from './components/Calendar/CalendarGrid';
-import Calendar from './components/Calendar/Calendar';
-import './styles/global.css';
+import React from 'react';
+import Calendar from './components/Calendar/Calendar';  // Importing the Calendar component
+import './App.css';
 
 function App() {
-  const [currentDate, setCurrentDate] = useState(new Date());
-
-  const handlePrevMonth = () => setCurrentDate(subMonths(currentDate, 1));
-  const handleNextMonth = () => setCurrentDate(addMonths(currentDate, 1));
-
   return (
-    <div className="app">
-      <Header 
-        currentDate={currentDate} 
-        onPrevMonth={handlePrevMonth} 
-        onNextMonth={handleNextMonth} 
-      />
-      <CalendarGrid />
+    <div className="app-container">
+      <Calendar />  {/* Using the imported Calendar component */}
     </div>
   );
 }

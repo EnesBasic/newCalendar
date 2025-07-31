@@ -1,0 +1,44 @@
+/* Calendar Grid Styles */
+.calendar-grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.calendar-week-header {
+  display: grid;
+  grid-template-columns: auto repeat(7, 1fr);
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.calendar-week {
+  display: grid;
+  grid-template-columns: auto repeat(7, 1fr);
+  min-height: 100px;
+}
+
+.week-number-header,
+.week-number {
+  padding: 10px;
+  font-weight: bold;
+  background: #f5f5f5;
+  border-right: 1px solid #ddd;
+}
+
+.calendar-day-header {
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+.calendar-day {
+  padding: 5px;
+  border: 1px solid #eee;
+  min-height: 80px;
+}
+
+.calendar-day.other-month {
+  color: #ccc;
+  background: #f9f9f9;
+}

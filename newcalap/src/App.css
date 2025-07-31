@@ -14,14 +14,16 @@
 }
 
 .App-header {
+  /* Remove min-height and flex centering */
   background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 20px;
+  color: rgb(146, 13, 13);
+}
+
+.App-content {
+  background: white;
+  color: black;
+  padding: 20px;
 }
 
 .App-link {

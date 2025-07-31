@@ -1,31 +1,63 @@
 import React from 'react';
-import './styles/global.css';
+import { format, startOfWeek, addDays, getWeek } from 'date-fns';
+import './Calendar.css';
 
-const CalendarGrid = () => {
-  const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-  const weeks = [1, 2, 3, 4, 5, 6]; // Placeholder for week numbers
+const CalendarGrid = ({ currentDate }) => {
+  const weekStart = startOfWeek(currentDate);
+  const days = [];
+  
+  // Add empty cell for week number column
+  days.push(<div key="weeknum-header" className="week-number-header">Week</div>);
+  
+  // Generate day headers
+  for (let i = 0; i < 7; i++) {
+    days.push(
+      <div key={i} className="calendar-day-header">
+        {format(addDays(weekStart, i), 'EEE')}
+      </div>
+    );
+  }
+
+  const date = new Date(currentDate);
+  const monthStart = new Date(date.getFullYear(), date.getMonth(), 1);
+  const monthEnd = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+  const startDate = startOfWeek(monthStart);
+  const endDate = startOfWeek(monthEnd);
+
+  const rows = [];
+  let daysRow = [];
+  let day = startDate;
+  
+  while (day <= endDate) {
+    // Add week number cell
+    daysRow.push(
+      <div key={`week-${day}`} className="week-number">
+        {getWeek(day)}
+      </div>
+    );
+    
+    // Add day cells
+    for (let i = 0; i < 7; i++) {
+      daysRow.push(
+        <div 
+          key={day} 
+          className={`calendar-day ${
+            format(day, 'MM') !== format(currentDate, 'MM') ? 'other-month' : ''
+          }`}
+        >
+          {format(day, 'd')}
+        </div>
+      );
+      day = addDays(day, 1);
+    }
+    rows.push(<div key={day} className="calendar-week">{daysRow}</div>);
+    daysRow = [];
+  }
 
   return (
     <div className="calendar-grid">
-      {/* Top row: Days of week */}
-      <div className="grid-header">
-        <div className="cell"></div> {/* Empty cell for week numbers */}
-        {daysOfWeek.map((day) => (
-          <div key={day} className="cell day-header">
-            {day}
-          </div>
-        ))}
-      </div>
-
-      {/* Rows: Week numbers + days */}
-      {weeks.map((week) => (
-        <div key={week} className="grid-row">
-          <div className="cell week-number">{week}</div>
-          {daysOfWeek.map((day) => (
-            <div key={`${week}-${day}`} className="cell day-cell"></div>
-          ))}
-        </div>
-      ))}
+      <div className="calendar-week-header">{days}</div>
+      {rows}
     </div>
   );
 };

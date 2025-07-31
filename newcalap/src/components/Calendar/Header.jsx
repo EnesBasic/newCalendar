@@ -1,13 +1,24 @@
-import React, { useState } from 'react';
-import { format, addMonths, subMonths } from 'date-fns';
-import { ChevronLeft, ChevronRight } from '@mui/icons-material';
+import React from 'react';
+import './Calendar.css'; // Make sure this import path is correct
 
-const Header = ({ currentDate, onPrevMonth, onNextMonth }) => {
+const Header = ({ month, year, onPrevMonth, onNextMonth }) => {
   return (
-    <div className="header">
-      <button onClick={onPrevMonth}><ChevronLeft /></button>
-      <h2>{format(currentDate, 'MMMM yyyy')}</h2>
-      <button onClick={onNextMonth}><ChevronRight /></button>
+    <div className="calendar-header">
+      <button className="nav-arrow left-arrow" onClick={onPrevMonth}>
+        &lt;
+      </button>
+<h2 className="calendar-title" style={{
+  all: 'unset',
+  display: 'block !important',
+  color: 'black !important',
+  fontSize: '24px !important',
+  visibility: 'visible !important'
+}}>
+  {month} {year}
+</h2>
+      <button className="nav-arrow right-arrow" onClick={onNextMonth}>
+        &gt;
+      </button>
     </div>
   );
 };
