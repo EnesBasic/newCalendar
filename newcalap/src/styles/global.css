@@ -1,0 +1,25 @@
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 1px;
+  background: #eee;
+}
+
+.grid-header, .grid-row {
+  display: contents;
+}
+
+.cell {
+  padding: 10px;
+  background: white;
+  text-align: center;
+}
+
+.day-header {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.week-number {
+  font-style: italic;
+}
