@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import { format, addMonths, subMonths } from 'date-fns';
-import Header from './components/Header';
-import CalendarGrid from './components/CalendarGrid';
-import '../styles/global.css';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-  const [currentDate, setCurrentDate] = useState(new Date());
-
-  const handlePrevMonth = () => setCurrentDate(subMonths(currentDate, 1));
-  const handleNextMonth = () => setCurrentDate(addMonths(currentDate, 1));
-
   return (
-    <div className="app">
-      <Header 
-        currentDate={currentDate} 
-        onPrevMonth={handlePrevMonth} 
-        onNextMonth={handleNextMonth} 
-      />
-      <CalendarGrid />
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
