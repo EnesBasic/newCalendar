@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { format, addMonths, subMonths } from 'date-fns';
-import Header from './components/Header';
-import CalendarGrid from './components/CalendarGrid';
+import Header from './components/Calendar/Header';
+import CalendarGrid from './components/Calendar/CalendarGrid';
+import Calendar from './components/Calendar';
 import './styles/global.css';
 
 function App() {
