@@ -38,19 +38,22 @@ const CalendarGrid = ({ currentDate }) => {
     
     // Add day cells
     for (let i = 0; i < 7; i++) {
+      const isToday = format(day, 'yyyy-MM-dd') === format(new Date(), 'yyyy-MM-dd');
+      const isCurrentMonth = format(day, 'MM') === format(currentDate, 'MM');
+      
       daysRow.push(
         <div 
-          key={day} 
+          key={day.toString()} 
           className={`calendar-day ${
-            format(day, 'MM') !== format(currentDate, 'MM') ? 'other-month' : ''
-          }`}
+            !isCurrentMonth ? 'other-month' : ''
+          } ${isToday ? 'today' : ''}`}
         >
           {format(day, 'd')}
         </div>
       );
       day = addDays(day, 1);
     }
-    rows.push(<div key={day} className="calendar-week">{daysRow}</div>);
+    rows.push(<div key={day.toString()} className="calendar-week">{daysRow}</div>);
     daysRow = [];
   }
 

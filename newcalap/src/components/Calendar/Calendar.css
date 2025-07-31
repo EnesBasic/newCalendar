@@ -1,44 +1,107 @@
-/* Calendar Grid Styles */
-.calendar-grid {
+/* Calendar Container */
+.calendar {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Header Styles */
+.calendar-header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #2c3e50;
+  color: white;
+}
+
+.calendar-title {
+  color: black;
+  font-size: 24px;
+  /* other styles */
+}
+
+.nav-arrow {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.nav-arrow:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Grid Styles */
+.calendar-grid {
   width: 100%;
+  border-collapse: collapse;
 }
 
 .calendar-week-header {
   display: grid;
   grid-template-columns: auto repeat(7, 1fr);
-  text-align: center;
+  background: #f8f9fa;
   font-weight: bold;
-  margin-bottom: 10px;
+  text-align: center;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.week-number-header, 
+.calendar-day-header {
+  padding: 10px;
+  color: #495057;
+  text-transform: uppercase;
+  font-size: 0.8rem;
 }
 
 .calendar-week {
   display: grid;
   grid-template-columns: auto repeat(7, 1fr);
-  min-height: 100px;
+  min-height: 80px;
 }
 
-.week-number-header,
 .week-number {
-  padding: 10px;
-  font-weight: bold;
-  background: #f5f5f5;
-  border-right: 1px solid #ddd;
-}
-
-.calendar-day-header {
-  padding: 10px;
-  text-transform: uppercase;
+  padding: 5px;
+  text-align: center;
+  background: #f8f9fa;
+  color: #6c757d;
+  font-size: 0.9rem;
+  border-right: 1px solid #dee2e6;
 }
 
 .calendar-day {
   padding: 5px;
-  border: 1px solid #eee;
-  min-height: 80px;
+  border: 1px solid #dee2e6;
+  vertical-align: top;
+  position: relative;
 }
 
 .calendar-day.other-month {
-  color: #ccc;
-  background: #f9f9f9;
+  color: #adb5bd;
+  background: #f8f9fa;
+}
+
+.calendar-day.today {
+  background: #e3f2fd;
+  font-weight: bold;
+}
+
+/* Events Section */
+.events-section {
+  padding: 15px;
+  background: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+}
+
+.events-title {
+  margin: 0 0 10px 0;
+  color: #495057;
+  font-size: 1rem;
 }
