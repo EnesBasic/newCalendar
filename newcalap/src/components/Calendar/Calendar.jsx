@@ -6,10 +6,7 @@ import { generateMonthDays } from '../../utils/calendarHelpers';
 import CalendarGrid from './CalendarGrid';
 import './styles/global.css';
 
-const CalendarGrid = ({ currentDate }) => {
-  const days = generateMonthDays(currentDate);
-  // Render days in the grid...
-};
+
 
 const Calendar = ({ date = new Date(), weekStartsOn = 0 }) => {
   const dateGrid = generateDateGrid(date, weekStartsOn);
