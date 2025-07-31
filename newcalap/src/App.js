@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { format, addMonths, subMonths } from 'date-fns';
 import Header from './components/Header';
 import CalendarGrid from './components/CalendarGrid';
+import '../styles/global.css';
 
 function App() {
   const [currentDate, setCurrentDate] = useState(new Date());
