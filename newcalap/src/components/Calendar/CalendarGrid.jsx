@@ -6,6 +6,7 @@ import './CalendarGrid.css';
 
 
 const CalendarGrid = ({ currentDate }) => {
+    console.log("CalendarGrid rendering");
   const weekStart = startOfWeek(currentDate);
   const days = [];
   

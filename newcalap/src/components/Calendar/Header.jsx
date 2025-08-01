@@ -5,6 +5,7 @@ import './Calendar.css';
 import { GlassArrow } from '../UI/GlassArrow'; // or the default import
 
 const Header = ({ month, year, onPrevMonth, onNextMonth }) => {
+   console.log("Header rendering");
   return (
     <div className="calendar-header">
       <button 

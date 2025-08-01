@@ -2,10 +2,12 @@
 import React from 'react';
 import Header from './Header';
 import CalendarGrid from './CalendarGrid';
-import EventsSection from './EventsSection';
-import { getWeek, parseISO } from 'date-fns';
 import './CalendarGrid.css';
 import './Calendar.css';
+import EventsSection from './EventsSection';
+import { getWeek, parseISO } from 'date-fns';
+
+
 
 const Calendar = () => {
   // Sample data structure
@@ -19,13 +21,13 @@ const Calendar = () => {
     },
     // ... other weeks
   ];
-
+   console.log("Calendar component rendering");
   return (
     <div className="calendar-container">
-      <Header month="February" year={2025} />
-      <CalendarGrid weeks={weeks} />
-      <EventsSection />
-    </div>
+        <Header month="February" year={2025} />
+         <CalendarGrid weeks={weeks} />
+         <EventsSection />
+      </div>
   );
 };
 

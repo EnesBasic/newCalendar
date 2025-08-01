@@ -1,0 +1,74 @@
+/* CalendarGrid.css */
+.calendar-grid {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 20px;
+}
+
+/* Header row */
+.calendar-grid thead th {
+  padding: 12px 0;
+  text-align: center;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #e0e0e0;
+  background-color: #f8f9fa;
+}
+
+/* Week number column */
+.calendar-grid .week-number {
+  width: 50px;
+  font-weight: bold;
+  color: #555;
+  background-color: #f5f5f5;
+  text-align: center;
+  border-right: 2px solid #ddd;
+  font-size: 0.9em;
+}
+
+/* Calendar cells */
+.calendar-grid td {
+  height: 80px;
+  vertical-align: top;
+  padding: 4px;
+  border: 1px solid #e0e0e0;
+  position: relative;
+}
+
+.day-number {
+  text-align: right;
+  padding: 4px 6px;
+  font-size: 0.9em;
+}
+
+/* Current month days */
+.calendar-day {
+  color: #333;
+}
+
+/* Days from other months */
+.other-month {
+  color: #aaa;
+  background-color: #fafafa;
+}
+
+.other-month .day-number {
+  color: #ccc;
+}
+
+/* Today's cell */
+.today {
+  background-color: #e3f2fd;
+}
+
+.today .day-number {
+  font-weight: bold;
+  color: #0066cc;
+}
+
+/* Hover effect */
+.calendar-grid td:hover:not(.week-number) {
+  background-color: #f0f0f0;
+}

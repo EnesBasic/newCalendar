@@ -3,6 +3,7 @@ import Calendar from './components/Calendar/Calendar';  // Importing the Calenda
 import './App.css';
 
 function App() {
+   console.log("App component rendering"); // Check browser console
   return (
     <div className="app-container">
       <Calendar />  {/* Using the imported Calendar component */}
