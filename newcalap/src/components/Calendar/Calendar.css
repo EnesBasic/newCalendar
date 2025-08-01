@@ -1,4 +1,24 @@
-/* Calendar Container */
+.calendar-header::before, 
+.calendar-header::after,
+.calendar-title::before,
+.calendar-title::after {
+  content: none !important; /* Add this to disable */
+}
+
+/* Debugging - will highlight all unexpected images */
+.calendar-header *:not(.nav-arrow) img {
+  outline: 2px solid red !important;
+}
+
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #f8f9fa;
+  --border-color: #e0e0e0;
+  --text-color: #333;
+  --other-month-color: #aaa;
+  --today-bg: #e3f2fd;
+}
+
 .calendar {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   max-width: 800px;
@@ -7,6 +27,29 @@
   border-radius: 8px;
   overflow: hidden;
 }
+.calendar-container {
+  background:transparent;/* Solid white (no transparency) */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+  margin: 20px auto;
+  width: 90%;
+  max-width: 1000px;
+}
+
+.calendar-grid {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calendar-grid th, 
+.calendar-grid td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ddd;
+  background: rgb(51, 51, 51); /* Ensure cells are opaque */
+}
+
 
 /* Header Styles */
 .calendar-header {
@@ -16,22 +59,23 @@
   padding: 15px 20px;
   background: #2c3e50;
   color: white;
+  background-color: var(--primary-color);
+  border-radius: 8px 8px 0 0;
 }
 
+
 .calendar-title {
-  color: black;
+  color: white; /* Changed from black to white for dark header */
   font-size: 24px;
-  /* other styles */
+  margin: 0;
 }
 
 .nav-arrow {
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 4px;
+  /* Add these new properties */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0; /* Removes space for pseudo-elements */
 }
 
 .nav-arrow:hover {
@@ -104,4 +148,38 @@
   margin: 0 0 10px 0;
   color: #495057;
   font-size: 1rem;
+}
+
+/* Glass arrow styles - UPDATED */
+.calendar-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(100, 180, 255, 0.3);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  /* Remove all pseudo-elements */
+  ::before, ::after {
+    content: none !important;
+  }
+}
+
+/* Navigation buttons - UPDATED */
+.nav-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 4px;
+  /* Add these to prevent icon duplication */
+  display: flex;
+  line-height: 0;
+  ::before, ::after {
+    content: none !important;
+  }
 }

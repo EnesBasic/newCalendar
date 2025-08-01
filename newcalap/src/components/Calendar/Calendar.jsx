@@ -1,29 +1,30 @@
-import React, { useState } from 'react';
+// Calendar.jsx - Corrected version
+import React from 'react';
 import Header from './Header';
 import CalendarGrid from './CalendarGrid';
+import EventsSection from './EventsSection';
+import { getWeek, parseISO } from 'date-fns';
+import './CalendarGrid.css';
 import './Calendar.css';
 
 const Calendar = () => {
-  const [currentDate, setCurrentDate] = useState(new Date());
-  const monthName = currentDate.toLocaleString('default', { month: 'long' });
-
-  const handlePrevMonth = () => {
-    setCurrentDate(prev => new Date(prev.getFullYear(), prev.getMonth() - 1, 1));
-  };
-
-  const handleNextMonth = () => {
-    setCurrentDate(prev => new Date(prev.getFullYear(), prev.getMonth() + 1, 1));
-  };
+  // Sample data structure
+  const weeks = [
+    {
+      weekNumber: getWeek(parseISO('2025-01-27')),
+      days: [
+        { date: '2025-01-27', dayOfMonth: 27, isCurrentMonth: false },
+        // ... other days
+      ]
+    },
+    // ... other weeks
+  ];
 
   return (
-    <div className="calendar">
-      <Header 
-        month={monthName}
-        year={currentDate.getFullYear()}
-        onPrevMonth={handlePrevMonth}
-        onNextMonth={handleNextMonth}
-      />
-      <CalendarGrid currentDate={currentDate} />
+    <div className="calendar-container">
+      <Header month="February" year={2025} />
+      <CalendarGrid weeks={weeks} />
+      <EventsSection />
     </div>
   );
 };

@@ -1,8 +1,37 @@
-html, body, #root {
-  height: 100%;
-  overflow-x: hidden;
+/* Apply background ONLY to the body (not content) */
+body {
+  background-image: url('./assets/calendarBg1_.jpg');
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white; /* Fallback color */
+  background-clip: content-box; /* Ensures background doesn't cover content */
+  background-origin: content-box; /* Ensures background doesn't cover content */
+  background-position: center;
+  background-size: cover; /* Ensures the background covers the entire body */
+  margin: 0;
+  padding: 0;
 }
 
+/* Ensure #root content covers the background */
+#root {
+  position: relative;
+  background:transparent; /* Solid white behind all content */
+  min-height: 100vh;
+  z-index: 1; /* Ensures content stays above body */
+}
+/* Example: Calendar Grid Container */
+.Calendar {
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+  padding: 20px;
+  border-radius: 8px; /* Optional: rounded corners */
+}
+
+/* Ensure text is readable */
+.CalendarGrid th,
+.CalendarGrid td {
+  color: #333; /* Dark text for visibility */
+}
 
 .App {
   text-align: center;

@@ -1,6 +1,9 @@
 import React from 'react';
 import { format, startOfWeek, addDays, getWeek } from 'date-fns';
 import './Calendar.css';
+import './CalendarGrid.css';
+// In CalendarGrid.jsx and Header.jsx
+
 
 const CalendarGrid = ({ currentDate }) => {
   const weekStart = startOfWeek(currentDate);
@@ -59,8 +62,10 @@ const CalendarGrid = ({ currentDate }) => {
 
   return (
     <div className="calendar-grid">
-      <div className="calendar-week-header">{days}</div>
-      {rows}
+      <div className="calendar-container">
+        <div className="calendar-week-header">{days}</div>
+        {rows}
+      </div>
     </div>
   );
 };

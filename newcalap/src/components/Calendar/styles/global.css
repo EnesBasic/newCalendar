@@ -1,3 +1,8 @@
+.nav-arrow::before,
+.nav-arrow::after {
+  display: none !important;
+}
+
 .calendar {
   font-family: Arial, sans-serif;
   max-width: 800px;
